@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import CurrentlyInto from '../components/CurrentlyInto.astro';
+import GamingSection from '../components/GamingSection.astro';
+import FeaturedProjects from '../components/FeaturedProjects.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Pabreetzio — Player 1 Online">
+  <Nav />
+  <main>
+    <Hero />
+    <div class="divider-wrap container"><div class="divider"></div></div>
+    <CurrentlyInto />
+    <GamingSection />
+    <FeaturedProjects />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    min-height: calc(100vh - 64px);
+  }
+
+  .divider-wrap {
+    padding: 0;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
+    margin: 8px 0;
+  }
+</style>

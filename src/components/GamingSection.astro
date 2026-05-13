@@ -1,0 +1,441 @@
+---
+const recentGames = [
+  { title: "No Man's Sky", hours: '42 hrs', color: '#1a4a2e', accent: '#22c55e' },
+  { title: 'Hollow Knight', hours: '35 hrs', color: '#1a1a3a', accent: '#a855f7' },
+  { title: 'Cloudpunk', hours: '12 hrs', color: '#2a1a0e', accent: '#f97316' },
+  { title: 'Sea of Stars', hours: '28 hrs', color: '#0e1a2a', accent: '#06b6d4' },
+];
+
+const genres = [
+  { name: 'Adventure', pct: 38, color: '#e91e8c' },
+  { name: 'RPG', pct: 26, color: '#a855f7' },
+  { name: 'Indie', pct: 18, color: '#f97316' },
+  { name: 'Simulation', pct: 10, color: '#eab308' },
+  { name: 'Other', pct: 8, color: '#6b7280' },
+];
+
+const links = [
+  { icon: '💬', label: 'Chat Server', color: 'purple', href: '/links' },
+  { icon: '📺', label: 'Streaming Hub', color: 'pink', href: '/links' },
+  { icon: '📸', label: 'Photo Dumps', color: 'orange', href: '/links' },
+  { icon: '⌨️', label: 'Code & Builds', color: 'cyan', href: '/links' },
+  { icon: '📝', label: 'Micro Blog', color: 'yellow', href: '/links' },
+  { icon: '📚', label: 'Good Reads', color: 'green', href: '/links' },
+  { icon: '🎵', label: 'Music Corner', color: 'purple', href: '/links' },
+  { icon: '💖', label: 'Wishlist', color: 'pink', href: '/links' },
+];
+
+// Build donut segments
+const total = genres.reduce((s, g) => s + g.pct, 0);
+let cum = 0;
+const segments = genres.map(g => {
+  const start = (cum / total) * 360;
+  const end = ((cum + g.pct) / total) * 360;
+  cum += g.pct;
+  const r = 40;
+  const cx = 55, cy = 55;
+  const startRad = ((start - 90) * Math.PI) / 180;
+  const endRad = ((end - 90) * Math.PI) / 180;
+  const x1 = cx + r * Math.cos(startRad);
+  const y1 = cy + r * Math.sin(startRad);
+  const x2 = cx + r * Math.cos(endRad);
+  const y2 = cy + r * Math.sin(endRad);
+  const large = end - start > 180 ? 1 : 0;
+  return { ...g, d: `M${cx},${cy} L${x1},${y1} A${r},${r},0,${large},1,${x2},${y2} Z` };
+});
+---
+
+<section class="gaming-wrap">
+  <div class="container gaming-layout">
+
+    <!-- Main gaming column -->
+    <div class="gaming-main section-card">
+
+      <div class="gaming-header">
+        <div class="gaming-title">
+          <span class="title-icon">🎮</span>
+          <span class="title-text">GAMING</span>
+        </div>
+        <a href="/gaming" class="view-all">
+          View all games
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="gaming-content">
+        <!-- Recently played -->
+        <div class="recent-section">
+          <div class="subsection-label">RECENTLY PLAYED</div>
+          <div class="game-grid">
+            {recentGames.map(game => (
+              <div class="game-card" style={`background: linear-gradient(160deg, ${game.color}, #0a0a18); border-color: ${game.accent}33;`}>
+                <div class="game-art" style={`background: linear-gradient(135deg, ${game.color}, ${game.accent}22);`}>
+                  <div class="game-art-icon" style={`color: ${game.accent};`}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                      <rect x="2" y="6" width="20" height="12" rx="3"/>
+                      <path d="M8 12h8M12 8v8"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="game-info">
+                  <div class="game-title">{game.title}</div>
+                  <div class="game-hours" style={`color: ${game.accent};`}>{game.hours}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Stats + Genres -->
+        <div class="stats-row">
+          <div class="gamer-stats">
+            <div class="subsection-label">GAMER STATS</div>
+            <div class="stat-item">
+              <span class="stat-icon trophy">🏆</span>
+              <div>
+                <div class="stat-num">133</div>
+                <div class="stat-label">Games Played</div>
+              </div>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon clock">🕐</span>
+              <div>
+                <div class="stat-num">1,842</div>
+                <div class="stat-label">Hours Logged</div>
+              </div>
+            </div>
+            <div class="stat-item">
+              <span class="stat-icon fire">🔥</span>
+              <div>
+                <div class="stat-num">27 <span class="stat-unit">days</span></div>
+                <div class="stat-label">Longest Streak</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="genre-section">
+            <div class="subsection-label">FAVORITE GENRES</div>
+            <div class="genre-chart-row">
+              <div class="donut-wrap">
+                <svg width="110" height="110" viewBox="0 0 110 110">
+                  {segments.map(s => (
+                    <path d={s.d} fill={s.color} opacity="0.85" stroke="var(--bg-card)" stroke-width="1"/>
+                  ))}
+                  <circle cx="55" cy="55" r="25" fill="var(--bg-card)"/>
+                </svg>
+              </div>
+              <ul class="genre-list">
+                {genres.map(g => (
+                  <li class="genre-item">
+                    <span class="genre-dot" style={`background: ${g.color};`}></span>
+                    <span class="genre-name">{g.name}</span>
+                    <span class="genre-pct">{g.pct}%</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Links sidebar -->
+    <div class="links-sidebar section-card">
+      <div class="links-header">
+        <span class="links-title-icon">💬</span>
+        <span class="links-title">LINKS / HANGOUTS</span>
+      </div>
+      <div class="links-grid">
+        {links.map(link => (
+          <a href={link.href} class={`link-item link-item--${link.color}`}>
+            <span class="link-icon">{link.icon}</span>
+            <span class="link-label">{link.label}</span>
+          </a>
+        ))}
+      </div>
+      <a href="/links" class="more-links">
+        More places to find me
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .gaming-wrap {
+    padding: 0 0 24px;
+  }
+
+  .gaming-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 16px;
+  }
+
+  /* ── Main card ── */
+  .gaming-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .gaming-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .gaming-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .title-icon { font-size: 18px; }
+
+  .title-text {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text);
+  }
+
+  .view-all {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--pink);
+    font-family: var(--font-ui);
+    font-weight: 500;
+    transition: gap 0.2s;
+  }
+  .view-all:hover { gap: 10px; }
+
+  .gaming-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .subsection-label {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  /* Game grid */
+  .game-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .game-card {
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .game-card:hover { transform: translateY(-3px); }
+
+  .game-art {
+    aspect-ratio: 16/10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .game-art-icon {
+    opacity: 0.6;
+  }
+
+  .game-info {
+    padding: 8px 10px;
+  }
+
+  .game-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .game-hours {
+    font-size: 11px;
+    font-family: var(--font-display);
+    margin-top: 2px;
+  }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .gamer-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .stat-icon {
+    font-size: 22px;
+    width: 40px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+  }
+
+  .stat-unit {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* Genres */
+  .genre-chart-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .donut-wrap {
+    flex-shrink: 0;
+  }
+
+  .genre-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .genre-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .genre-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .genre-name {
+    flex: 1;
+    color: var(--text-muted);
+  }
+
+  .genre-pct {
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 11px;
+    min-width: 32px;
+    text-align: right;
+  }
+
+  /* ── Links sidebar ── */
+  .links-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .links-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .links-title-icon { font-size: 16px; }
+
+  .links-title {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text);
+  }
+
+  .links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .link-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: var(--font-ui);
+    font-weight: 500;
+    color: var(--text);
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .link-item:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-1px);
+  }
+
+  .link-icon { font-size: 15px; }
+
+  .link-label { font-size: 12px; }
+
+  .link-item--purple:hover { border-color: rgba(168, 85, 247, 0.4); color: var(--purple-light); }
+  .link-item--pink:hover   { border-color: rgba(233, 30, 140, 0.4); color: var(--pink); }
+  .link-item--orange:hover { border-color: rgba(249, 115, 22, 0.4); color: var(--orange); }
+  .link-item--cyan:hover   { border-color: rgba(6, 182, 212, 0.4); color: var(--cyan); }
+  .link-item--yellow:hover { border-color: rgba(234, 179, 8, 0.4); color: var(--yellow); }
+  .link-item--green:hover  { border-color: rgba(34, 197, 94, 0.4); color: var(--green); }
+
+  .more-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--pink);
+    font-family: var(--font-ui);
+    font-weight: 500;
+    transition: gap 0.2s;
+    margin-top: auto;
+  }
+  .more-links:hover { gap: 10px; }
+</style>
