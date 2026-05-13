@@ -1,0 +1,195 @@
+---
+const projects = [
+  {
+    title: '8-Bit Explorer',
+    desc: 'A tiny retro adventure engine I built for fun.',
+    tag: '#GAME DEV',
+    color: '#1a2a3a',
+    accent: '#22c55e',
+    emoji: '🎮',
+    href: '/projects',
+  },
+  {
+    title: 'Mood Tracker',
+    desc: 'Track vibes, see patterns, feel things.',
+    tag: '#WEB APP',
+    color: '#2a1a2a',
+    accent: '#e91e8c',
+    emoji: '😊',
+    href: '/projects',
+  },
+  {
+    title: 'Console Log',
+    desc: 'A curated collection of gaming thoughts & hot takes.',
+    tag: '#BLOG',
+    color: '#1a1a2a',
+    accent: '#a855f7',
+    emoji: '📝',
+    href: '/projects',
+  },
+];
+---
+
+<section class="featured-projects">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="header-left">
+        <span class="star-icon">⭐</span>
+        <span class="section-label">FEATURED FUN PROJECTS</span>
+      </div>
+      <a href="/projects" class="see-all">
+        See all projects
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="projects-grid">
+      {projects.map(project => (
+        <a href={project.href} class="project-card" style={`--accent: ${project.accent};`}>
+          <div class="project-art" style={`background: linear-gradient(135deg, ${project.color}, #0a0a18); border-color: ${project.accent}33;`}>
+            <span class="project-emoji">{project.emoji}</span>
+            <div class="project-art-grid">
+              {Array.from({length: 9}).map(() => <span class="art-pixel"></span>)}
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">{project.title}</h3>
+            <p class="project-desc">{project.desc}</p>
+            <span class="project-tag" style={`color: ${project.accent}; border-color: ${project.accent}44; background: ${project.accent}11;`}>
+              {project.tag}
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .featured-projects {
+    padding: 0 0 32px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .star-icon { font-size: 18px; }
+
+  .section-label {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text);
+  }
+
+  .see-all {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--pink);
+    font-family: var(--font-ui);
+    font-weight: 500;
+    transition: gap 0.2s;
+  }
+  .see-all:hover { gap: 10px; }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: block;
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent, var(--border-bright));
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+
+  .project-art {
+    aspect-ratio: 16/8;
+    border-bottom: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-emoji {
+    font-size: 40px;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+  }
+
+  .project-art-grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    padding: 8px;
+    opacity: 0.05;
+  }
+
+  .art-pixel {
+    background: white;
+    border-radius: 2px;
+  }
+
+  .project-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .project-title {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  .project-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .project-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    border: 1px solid;
+    font-size: 11px;
+    font-family: var(--font-display);
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    width: fit-content;
+  }
+</style>

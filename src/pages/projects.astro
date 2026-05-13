@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+const icons = { gaming: '🎮', projects: '⚙️', media: '🎬', links: '🔗' };
+const icon = icons[Astro.url.pathname.replace('/', '')] || '📄';
+const title = Astro.url.pathname.replace('/', '').charAt(0).toUpperCase() + Astro.url.pathname.replace('/', '').slice(1);
+---
+<Layout title={`${title} — Pabreetzio`}>
+  <Nav />
+  <main class="placeholder-page container">
+    <div class="coming-soon">
+      <div class="cs-icon">{icon}</div>
+      <h1>{title}</h1>
+      <p>This page is under construction. Check back soon!</p>
+      <a href="/" class="btn-primary">← Back Home</a>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .placeholder-page {
+    min-height: calc(100vh - 128px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .coming-soon {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .cs-icon { font-size: 64px; }
+  h1 {
+    font-family: var(--font-display);
+    font-size: 36px;
+    color: var(--text);
+  }
+  p { color: var(--text-muted); }
+</style>

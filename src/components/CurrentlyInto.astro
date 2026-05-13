@@ -1,0 +1,185 @@
+---
+const items = [
+  {
+    icon: '🎮',
+    color: 'purple',
+    title: 'Gaming',
+    desc: 'Story-rich adventures, cozy indies, and a healthy dose of chaos.',
+    href: '/gaming',
+  },
+  {
+    icon: '💻',
+    color: 'cyan',
+    title: 'Side Projects',
+    desc: 'Building weird ideas, tiny tools, and things that make me go "heck yeah."',
+    href: '/projects',
+  },
+  {
+    icon: '🫂',
+    color: 'yellow',
+    title: 'Community',
+    desc: 'Good people, great conversations, and making the internet a little better.',
+    href: '/links',
+  },
+  {
+    icon: '🎲',
+    color: 'pink',
+    title: 'Random Interests',
+    desc: 'Synthwave, retro tech, coffee, design, memes, and collecting fun rabbit holes.',
+    href: '/about',
+  },
+];
+---
+
+<section class="currently-into">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-icon">⚡</span>
+      <span class="section-title">CURRENTLY INTO</span>
+    </div>
+
+    <div class="cards-grid">
+      {items.map(item => (
+        <a href={item.href} class={`into-card into-card--${item.color}`}>
+          <div class="card-icon-wrap">
+            <span class="card-icon">{item.icon}</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">{item.title}</h3>
+            <p class="card-desc">{item.desc}</p>
+          </div>
+          <div class="card-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .currently-into {
+    padding: 8px 0 24px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .section-icon {
+    font-size: 16px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .into-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .into-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .into-card--purple::before { background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), transparent); }
+  .into-card--cyan::before   { background: linear-gradient(135deg, rgba(6, 182, 212, 0.06), transparent); }
+  .into-card--yellow::before { background: linear-gradient(135deg, rgba(234, 179, 8, 0.06), transparent); }
+  .into-card--pink::before   { background: linear-gradient(135deg, rgba(233, 30, 140, 0.06), transparent); }
+
+  .into-card:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-2px);
+  }
+
+  .into-card:hover::before { opacity: 1; }
+
+  .into-card--purple:hover { border-color: rgba(124, 58, 237, 0.4); }
+  .into-card--cyan:hover   { border-color: rgba(6, 182, 212, 0.4); }
+  .into-card--yellow:hover { border-color: rgba(234, 179, 8, 0.4); }
+  .into-card--pink:hover   { border-color: rgba(233, 30, 140, 0.4); }
+
+  .card-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .into-card--purple .card-icon-wrap { background: rgba(124, 58, 237, 0.15); border: 1px solid rgba(124, 58, 237, 0.3); }
+  .into-card--cyan .card-icon-wrap   { background: rgba(6, 182, 212, 0.15); border: 1px solid rgba(6, 182, 212, 0.3); }
+  .into-card--yellow .card-icon-wrap { background: rgba(234, 179, 8, 0.15); border: 1px solid rgba(234, 179, 8, 0.3); }
+  .into-card--pink .card-icon-wrap   { background: rgba(233, 30, 140, 0.15); border: 1px solid rgba(233, 30, 140, 0.3); }
+
+  .card-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-title {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .into-card--purple .card-title { color: var(--purple-light); }
+  .into-card--cyan .card-title   { color: var(--cyan); }
+  .into-card--yellow .card-title { color: var(--yellow); }
+  .into-card--pink .card-title   { color: var(--pink); }
+
+  .card-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .card-arrow {
+    color: var(--text-dim);
+    flex-shrink: 0;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .into-card:hover .card-arrow {
+    transform: translateX(3px);
+  }
+
+  .into-card--purple:hover .card-arrow { color: var(--purple-light); }
+  .into-card--cyan:hover .card-arrow   { color: var(--cyan); }
+  .into-card--yellow:hover .card-arrow { color: var(--yellow); }
+  .into-card--pink:hover .card-arrow   { color: var(--pink); }
+</style>

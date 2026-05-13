@@ -1,0 +1,184 @@
+---
+---
+
+<footer class="footer">
+  <div class="footer-cityscape" aria-hidden="true">
+    <div class="city-buildings">
+      {Array.from({length: 20}).map((_, i) => (
+        <div class="building" style={`height: ${30 + (i * 7) % 50}px; width: ${18 + (i * 5) % 20}px; left: ${i * 5}%;`}></div>
+      ))}
+    </div>
+  </div>
+
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">
+        <span class="footer-logo-p">P</span>
+        <span class="footer-logo-text">pabreetzio.com</span>
+      </a>
+      <p class="footer-tagline">Thanks for visiting! Stay curious. <span class="footer-heart">💜</span></p>
+    </div>
+
+    <div class="footer-pixel-char">
+      <div class="speech-bubble">
+        Be kind. Have fun.<br />Save often. <span>✨</span>
+      </div>
+      <div class="pixel-character" aria-hidden="true">
+        <!-- Pixel art character -->
+        <svg width="60" height="70" viewBox="0 0 60 70" style="image-rendering: pixelated;">
+          <!-- head -->
+          <rect x="20" y="4" width="20" height="18" fill="#1e1040"/>
+          <!-- hair -->
+          <rect x="18" y="2" width="24" height="6" fill="#0d0820"/>
+          <rect x="16" y="6" width="4" height="8" fill="#0d0820"/>
+          <rect x="40" y="6" width="4" height="8" fill="#0d0820"/>
+          <!-- eyes -->
+          <rect x="24" y="12" width="4" height="4" fill="#06b6d4"/>
+          <rect x="32" y="12" width="4" height="4" fill="#06b6d4"/>
+          <!-- body -->
+          <rect x="18" y="22" width="24" height="22" fill="#12102a"/>
+          <!-- arms -->
+          <rect x="10" y="24" width="8" height="14" fill="#12102a"/>
+          <rect x="42" y="24" width="8" height="14" fill="#12102a"/>
+          <!-- legs -->
+          <rect x="20" y="44" width="8" height="16" fill="#0f0e20"/>
+          <rect x="32" y="44" width="8" height="16" fill="#0f0e20"/>
+          <!-- shoes -->
+          <rect x="18" y="58" width="12" height="6" fill="#1a1030"/>
+          <rect x="30" y="58" width="12" height="6" fill="#1a1030"/>
+          <!-- logo on shirt -->
+          <rect x="26" y="28" width="8" height="8" rx="1" fill="#1e1a3a"/>
+          <text x="30" y="35.5" text-anchor="middle" font-family="monospace" font-size="6" fill="#7c3aed" font-weight="bold">P</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    position: relative;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    padding-top: 60px;
+    overflow: hidden;
+  }
+
+  .footer-cityscape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    pointer-events: none;
+  }
+
+  .city-buildings {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+  }
+
+  .building {
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(to top, #0a0818, #12102a);
+    border-top: 1px solid #1e1a3a;
+    opacity: 0.6;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .footer-logo-p {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 22px;
+    color: white;
+    box-shadow: 0 0 20px var(--pink-glow);
+  }
+
+  .footer-logo-text {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .footer-tagline {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding-left: 54px;
+  }
+
+  .footer-heart {
+    font-size: 14px;
+  }
+
+  .footer-pixel-char {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    position: relative;
+  }
+
+  .speech-bubble {
+    background: var(--bg);
+    border: 1px solid var(--border-bright);
+    border-radius: 12px;
+    border-bottom-right-radius: 2px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.6;
+    max-width: 200px;
+    position: relative;
+  }
+
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 16px;
+    width: 14px;
+    height: 8px;
+    background: var(--bg);
+    border-right: 1px solid var(--border-bright);
+    border-bottom: 1px solid var(--border-bright);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+  }
+
+  .pixel-character {
+    image-rendering: pixelated;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.4));
+  }
+</style>

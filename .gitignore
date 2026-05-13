@@ -33,3 +33,6 @@ contentful-import-error-log*
 
 # vercel
 .vercel
+dist/
+node_modules/
+.astro/
