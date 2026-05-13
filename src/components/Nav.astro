@@ -12,7 +12,7 @@ const navLinks = [
 <nav class="nav">
   <div class="container nav-inner">
     <a href="/" class="logo">
-      <span class="logo-p">P</span>
+      <img src="/p-logo-black.png" alt="Pabreetzio" class="logo-img" />
       <span class="logo-text">Pabreetzio</span>
     </a>
 
@@ -83,19 +83,11 @@ const navLinks = [
     text-decoration: none;
   }
 
-  .logo-p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: linear-gradient(135deg, var(--pink), var(--purple));
-    color: white;
-    font-family: var(--font-display);
-    font-weight: 900;
-    font-size: 18px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px var(--pink-glow);
+  .logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: invert(1) drop-shadow(0 0 8px rgba(100, 160, 255, 0.5));
   }
 
   .logo-text {

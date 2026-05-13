@@ -13,7 +13,7 @@
   <div class="container footer-inner">
     <div class="footer-brand">
       <a href="/" class="footer-logo">
-        <span class="footer-logo-p">P</span>
+        <img src="/p-logo-black.png" alt="Pabreetzio" class="footer-logo-img" />
         <span class="footer-logo-text">pabreetzio.com</span>
       </a>
       <p class="footer-tagline">Thanks for visiting! Stay curious. <span class="footer-heart">💜</span></p>
@@ -119,19 +119,11 @@
     text-decoration: none;
   }
 
-  .footer-logo-p {
+  .footer-logo-img {
     width: 44px;
     height: 44px;
-    background: linear-gradient(135deg, var(--pink), var(--purple));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    font-family: var(--font-display);
-    font-weight: 900;
-    font-size: 22px;
-    color: white;
-    box-shadow: 0 0 20px var(--pink-glow);
+    object-fit: contain;
+    filter: invert(1) drop-shadow(0 0 8px rgba(100, 160, 255, 0.5));
   }
 
   .footer-logo-text {
@@ -144,7 +136,7 @@
   .footer-tagline {
     font-size: 13px;
     color: var(--text-muted);
-    padding-left: 54px;
+    padding-left: 52px;
   }
 
   .footer-heart {
