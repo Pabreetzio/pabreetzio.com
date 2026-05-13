@@ -6,168 +6,79 @@
 
     <!-- Left: Text content -->
     <div class="hero-left">
-      <div class="online-badge">
-        <span class="online-dot"></span>
-        <span class="badge-label">PLAYER 1</span>
-        <span class="badge-sep">•</span>
-        <span class="badge-status">ONLINE</span>
-      </div>
-
       <h1 class="hero-title">
-        <span class="at-sign">@</span>Pabreetzio
+        WELCOME TO<br/>
+        <span class="title-accent">MY CORNER OF</span><br/>
+        THE GALAXY
       </h1>
 
       <p class="hero-tagline">
-        Fun side quests, gaming, experiments, and the
-        stuff that doesn't fit anywhere else. <span class="cursor-blink" style="color:var(--pink)">▮</span>
+        Gamer. Tinkerer. Creator. Explorer of fun corners of the
+        internet and collector of curiosities. Join me for adventures,
+        side quests, and experiments from the edge of the map.
       </p>
-
-      <blockquote class="hero-quote">
-        Hey! I'm Pabreetzio — gamer, tinkerer, creator, and
-        perpetual curiosity collector. Welcome to my corner
-        of the internet. Grab a snack and stay awhile.
-      </blockquote>
 
       <div class="hero-ctas">
         <a href="/about" class="btn-primary">
-          Explore My World
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          Explore the Station
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="/links" class="btn-secondary">
-          Find Me Online
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Find Me Online
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
 
-      <p class="hero-update-note">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-        </svg>
-        New things added regularly. Come back for updates!
-      </p>
-    </div>
-
-    <!-- Center: Character art -->
-    <div class="hero-center">
-      <div class="char-frame">
-        <div class="char-corner tl"></div>
-        <div class="char-corner tr"></div>
-        <div class="char-corner bl"></div>
-        <div class="char-corner br"></div>
-        <div class="char-dots-top">
-          {Array.from({length: 8}).map(() => <span class="cdot"></span>)}
-        </div>
-        <div class="char-placeholder">
-          <div class="char-silhouette">
-            <div class="char-glow-bg"></div>
-            <svg class="char-svg" viewBox="0 0 200 300" fill="none">
-              <!-- Stylized anime character silhouette -->
-              <ellipse cx="100" cy="60" rx="35" ry="38" fill="#1a1035"/>
-              <!-- hair -->
-              <path d="M65 52 Q70 20 100 22 Q130 20 135 52 Q138 38 130 30 Q115 10 100 12 Q85 10 70 30 Q62 38 65 52Z" fill="#0d0820"/>
-              <!-- hair spikes -->
-              <path d="M68 48 Q60 30 72 22 Q64 28 68 48Z" fill="#0d0820"/>
-              <path d="M132 48 Q140 30 128 22 Q136 28 132 48Z" fill="#0d0820"/>
-              <!-- face -->
-              <ellipse cx="100" cy="62" rx="28" ry="30" fill="#1e1040"/>
-              <!-- eyes with glow -->
-              <ellipse cx="88" cy="58" rx="6" ry="7" fill="#0d0820"/>
-              <ellipse cx="112" cy="58" rx="6" ry="7" fill="#0d0820"/>
-              <ellipse cx="88" cy="58" rx="4" ry="5" fill="#06b6d4"/>
-              <ellipse cx="112" cy="58" rx="4" ry="5" fill="#06b6d4"/>
-              <ellipse cx="89" cy="56" rx="1.5" ry="2" fill="white"/>
-              <ellipse cx="113" cy="56" rx="1.5" ry="2" fill="white"/>
-              <!-- headphones -->
-              <path d="M68 55 Q65 40 100 38 Q135 40 132 55" stroke="#8b5cf6" stroke-width="4" fill="none"/>
-              <rect x="62" y="52" width="10" height="16" rx="4" fill="#6d28d9"/>
-              <rect x="128" y="52" width="10" height="16" rx="4" fill="#6d28d9"/>
-              <!-- body/hoodie -->
-              <path d="M72 92 Q75 150 70 190 Q85 195 100 196 Q115 195 130 190 Q125 150 128 92 Q115 85 100 86 Q85 85 72 92Z" fill="#12102a"/>
-              <!-- hood -->
-              <path d="M72 92 Q68 80 75 70 Q85 60 100 62 Q115 60 125 70 Q132 80 128 92 Q115 82 100 82 Q85 82 72 92Z" fill="#1a1640"/>
-              <!-- arms -->
-              <path d="M72 95 Q55 110 52 150 Q58 155 65 150 Q68 120 78 108Z" fill="#12102a"/>
-              <path d="M128 95 Q145 110 148 150 Q142 155 135 150 Q132 120 122 108Z" fill="#12102a"/>
-              <!-- pocket/logo area -->
-              <rect x="88" y="130" width="24" height="20" rx="4" fill="#1e1a3a"/>
-              <text x="100" y="144" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#7c3aed">P</text>
-              <!-- legs -->
-              <rect x="80" y="190" width="18" height="60" rx="6" fill="#0f0e20"/>
-              <rect x="102" y="190" width="18" height="60" rx="6" fill="#0f0e20"/>
-              <!-- shoes -->
-              <ellipse cx="89" cy="250" rx="12" ry="8" fill="#1a1030"/>
-              <ellipse cx="111" cy="250" rx="12" ry="8" fill="#1a1030"/>
-            </svg>
-            <div class="char-city-bg"></div>
-          </div>
-          <div class="char-P-badge">
-            <span>P</span>
-          </div>
-          <div class="crown-badge">👑</div>
-        </div>
-        <div class="char-scan-line"></div>
+      <div class="mission-bar">
+        <span class="mission-star">✦</span>
+        <span class="mission-label">MISSION ACTIVE:</span>
+        <span class="mission-text">Have fun. Build cool things. Be kind.</span>
       </div>
     </div>
 
-    <!-- Right: Player card -->
+    <!-- Right: Bridge viewport -->
     <div class="hero-right">
-      <div class="player-card">
-        <div class="player-level">
-          <span class="level-label">LEVEL</span>
-          <span class="level-num">28</span>
+      <div class="bridge-frame">
+        <!-- Corner brackets -->
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <!-- The image -->
+        <img
+          src="/xbox.com/commanding-the-cosmic-frontier.png"
+          alt="Commander at the starship bridge"
+          class="bridge-img"
+        />
+
+        <!-- HUD status bar -->
+        <div class="hud-bar">
+          <div class="hud-stat">
+            <span class="hud-bar-track"><span class="hud-bar-fill full"></span></span>
+            <span class="hud-label">FUEL 100%</span>
+          </div>
+          <div class="hud-divider"></div>
+          <div class="hud-stat">
+            <span class="hud-bar-track"><span class="hud-bar-fill full"></span></span>
+            <span class="hud-label">SHIELDS 100%</span>
+          </div>
+          <div class="hud-divider"></div>
+          <div class="hud-stat">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" class="hud-icon"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            <span class="hud-label">CREW 1 + 1</span>
+          </div>
+          <div class="hud-divider"></div>
+          <div class="hud-stat morale">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" class="hud-icon"><path d="M3.5 18.5l6-6 4 4L22 6.92"/><path d="M3.5 18.5l6-6 4 4L22 6.92" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            <span class="hud-label">MORALE HIGH</span>
+          </div>
         </div>
 
-        <div class="xp-section">
-          <div class="xp-bar-track">
-            <div class="xp-bar-fill" style="width: 74.5%"></div>
-          </div>
-          <div class="xp-labels">
-            <span>7,450 / 10,000 XP</span>
-          </div>
-        </div>
-
-        <div class="player-class">
-          <div class="class-label">CLASS</div>
-          <div class="class-value">
-            <span class="class-icon">🐻</span>
-            Curious One
-          </div>
-        </div>
-
-        <div class="achievements-section">
-          <div class="ach-label">ACHIEVEMENTS</div>
-          <div class="ach-badges">
-            <div class="ach-badge gold" title="Top Player">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-            </div>
-            <div class="ach-badge purple" title="Creator">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-              </svg>
-            </div>
-            <div class="ach-badge cyan" title="Champion">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
-                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
-                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
-                <path d="M4 22h16"/>
-                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
-                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
-                <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="ach-count">42 / 64</div>
-        </div>
-
-        <div class="player-quote">
-          <span class="quote-mark">"</span>
-          Life's more fun when
-          you treat it like
-          an open world.
-          <span class="quote-heart">💜</span>
-        </div>
+        <!-- Scan line -->
+        <div class="scan-line"></div>
       </div>
     </div>
 
@@ -184,422 +95,320 @@
   .hero::before {
     content: '';
     position: absolute;
-    top: -100px;
-    right: 200px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(ellipse, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+    top: -80px;
+    left: -100px;
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(124, 58, 237, 0.07) 0%, transparent 70%);
     pointer-events: none;
   }
 
   .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 340px 280px;
-    gap: 32px;
-    align-items: start;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 40px;
+    align-items: center;
   }
 
   /* ── Left ── */
   .hero-left {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding-top: 16px;
+    gap: 24px;
   }
 
-  .online-badge {
+  /* Starship badge */
+  .starship-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 6px 14px;
+    border-radius: 8px;
+    padding: 8px 16px;
     width: fit-content;
-    font-family: var(--font-display);
-    font-size: 11px;
-    letter-spacing: 1px;
   }
 
   .online-dot {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     background: var(--green);
     border-radius: 50%;
+    flex-shrink: 0;
     box-shadow: 0 0 8px var(--green);
     animation: pulse-dot 2s ease-in-out infinite;
   }
 
   @keyframes pulse-dot {
     0%, 100% { box-shadow: 0 0 4px var(--green); }
-    50% { box-shadow: 0 0 12px var(--green), 0 0 20px rgba(34, 197, 94, 0.4); }
+    50% { box-shadow: 0 0 14px var(--green), 0 0 24px rgba(34, 197, 94, 0.4); }
   }
 
-  .badge-label {
-    color: var(--text);
+  .badge-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .badge-title {
+    font-family: var(--font-display);
+    font-size: 12px;
     font-weight: 700;
-  }
-
-  .badge-sep {
-    color: var(--text-muted);
-  }
-
-  .badge-status {
+    letter-spacing: 1.5px;
     color: var(--green);
-    font-weight: 600;
   }
 
+  .badge-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+  }
+
+  /* Title */
   .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(40px, 6vw, 72px);
+    font-size: clamp(28px, 4.2vw, 54px);
     font-weight: 900;
-    line-height: 1;
+    line-height: 1.05;
     color: white;
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
   }
 
-  .at-sign {
-    color: var(--pink);
-    text-shadow: 0 0 30px var(--pink-glow);
+  .title-accent {
+    color: var(--cyan);
+    text-shadow: 0 0 40px rgba(6, 182, 212, 0.4);
   }
 
   .hero-tagline {
-    font-size: 17px;
-    line-height: 1.55;
-    color: var(--text);
-    max-width: 400px;
-    font-weight: 400;
-  }
-
-  .hero-quote {
-    border-left: 3px solid var(--purple);
-    padding-left: 16px;
+    font-size: 15px;
+    line-height: 1.65;
     color: var(--text-muted);
-    font-size: 14px;
-    line-height: 1.7;
-    font-style: normal;
+    max-width: 440px;
   }
 
+  /* CTAs */
   .hero-ctas {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
   }
 
-  .hero-update-note {
+  .btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Mission bar */
+  .mission-bar {
     display: flex;
     align-items: center;
     gap: 8px;
+    font-size: 13px;
+  }
+
+  .mission-star {
+    color: var(--yellow);
+    font-size: 11px;
+    filter: drop-shadow(0 0 6px var(--yellow));
+  }
+
+  .mission-label {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--yellow);
+    font-weight: 700;
+  }
+
+  .mission-text {
     color: var(--text-muted);
     font-size: 13px;
   }
 
-  .hero-update-note svg {
-    color: var(--cyan);
-    flex-shrink: 0;
-  }
-
-  /* ── Center character ── */
-  .hero-center {
+  /* ── Right: Bridge frame ── */
+  .hero-right {
     position: relative;
   }
 
-  .char-frame {
+  .bridge-frame {
     position: relative;
-    background: linear-gradient(160deg, #0e0e2a 0%, #080818 100%);
-    border: 1px solid var(--border-bright);
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 3/4;
-    display: flex;
-    flex-direction: column;
+    border: 1px solid var(--border-bright);
+    background: #05050f;
+    box-shadow:
+      0 0 0 1px rgba(6, 182, 212, 0.08),
+      0 0 40px rgba(6, 182, 212, 0.06),
+      0 0 80px rgba(124, 58, 237, 0.08);
   }
 
-  .char-corner {
+  /* Corner brackets */
+  .corner {
     position: absolute;
-    width: 16px;
-    height: 16px;
-    z-index: 2;
+    width: 18px;
+    height: 18px;
+    z-index: 4;
   }
-  .char-corner.tl { top: 8px; left: 8px; border-top: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
-  .char-corner.tr { top: 8px; right: 8px; border-top: 2px solid var(--cyan); border-right: 2px solid var(--cyan); }
-  .char-corner.bl { bottom: 8px; left: 8px; border-bottom: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
-  .char-corner.br { bottom: 8px; right: 8px; border-bottom: 2px solid var(--cyan); border-right: 2px solid var(--cyan); }
+  .corner.tl { top: 10px; left: 10px; border-top: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+  .corner.tr { top: 10px; right: 10px; border-top: 2px solid var(--cyan); border-right: 2px solid var(--cyan); }
+  .corner.bl { bottom: 10px; left: 10px; border-bottom: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+  .corner.br { bottom: 10px; right: 10px; border-bottom: 2px solid var(--cyan); border-right: 2px solid var(--cyan); }
 
-  .char-dots-top {
-    display: flex;
-    gap: 4px;
-    padding: 10px 12px 0;
-    z-index: 2;
+  /* Coordinates overlay */
+  .coord-display {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    z-index: 4;
+    background: rgba(4, 4, 20, 0.75);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 6px;
+    padding: 10px 14px;
+    backdrop-filter: blur(6px);
+    min-width: 160px;
   }
-  .cdot {
-    width: 5px;
-    height: 5px;
+
+  .coord-label {
+    font-family: var(--font-display);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--cyan);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .coord-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 4px;
+  }
+
+  .coord-key {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+  }
+
+  .coord-val {
+    font-family: var(--font-display);
+    font-size: 10px;
+    color: var(--cyan);
+    letter-spacing: 0.5px;
+  }
+
+  .coord-pip {
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: var(--border-bright);
-  }
-  .cdot:nth-child(1) { background: var(--pink); }
-  .cdot:nth-child(2) { background: var(--yellow); }
-  .cdot:nth-child(3) { background: var(--green); }
-
-  .char-placeholder {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+    margin-top: 8px;
+    animation: pulse-dot 2s ease-in-out infinite 0.5s;
   }
 
-  .char-silhouette {
-    position: relative;
+  /* The image */
+  .bridge-img {
+    display: block;
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    height: auto;
+    object-fit: cover;
   }
 
-  .char-glow-bg {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(ellipse, rgba(124, 58, 237, 0.25) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-
-  .char-city-bg {
+  /* HUD bar */
+  .hud-bar {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 80px;
-    background: linear-gradient(to top, rgba(30, 16, 60, 0.8), transparent);
-  }
-
-  .char-svg {
-    width: 80%;
-    max-height: 85%;
-    position: relative;
-    z-index: 1;
-    animation: float 4s ease-in-out infinite;
-    filter: drop-shadow(0 0 20px rgba(124, 58, 237, 0.4));
-  }
-
-  .char-P-badge {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, #7c3aed, #5b21b6);
-    border: 2px solid #a855f7;
-    border-radius: 6px;
+    z-index: 4;
+    background: linear-gradient(to top, rgba(4, 4, 20, 0.92) 0%, rgba(4, 4, 20, 0.7) 60%, transparent 100%);
+    padding: 24px 20px 14px;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 12px;
+  }
+
+  .hud-stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-family: var(--font-display);
-    font-weight: 900;
-    font-size: 22px;
-    color: white;
-    box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
-    z-index: 2;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
   }
 
-  .crown-badge {
-    position: absolute;
-    top: 28px;
-    right: 24px;
-    font-size: 24px;
-    z-index: 2;
-    filter: drop-shadow(0 0 10px rgba(234, 179, 8, 0.8));
-    animation: float 3s ease-in-out infinite 0.5s;
+  .hud-stat.morale {
+    color: var(--green);
   }
 
-  .char-scan-line {
+  .hud-icon {
+    color: inherit;
+    flex-shrink: 0;
+  }
+
+  .hud-bar-track {
+    display: inline-block;
+    width: 28px;
+    height: 3px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .hud-bar-fill {
+    display: block;
+    height: 100%;
+    border-radius: 2px;
+    background: var(--cyan);
+    box-shadow: 0 0 6px var(--cyan);
+  }
+
+  .hud-bar-fill.full { width: 100%; }
+
+  .hud-divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(255,255,255,0.15);
+    flex-shrink: 0;
+  }
+
+  .hud-label {
+    white-space: nowrap;
+  }
+
+  /* Scan line */
+  .scan-line {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-    opacity: 0.5;
-    animation: scan 4s linear infinite;
+    opacity: 0.4;
+    animation: scan 6s linear infinite;
+    z-index: 3;
   }
 
   @keyframes scan {
-    0% { top: 0%; }
-    100% { top: 100%; }
+    0%   { top: 0%; opacity: 0.4; }
+    50%  { opacity: 0.15; }
+    100% { top: 100%; opacity: 0.4; }
   }
 
-  /* ── Right player card ── */
-  .player-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-bright);
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    box-shadow: 0 0 30px rgba(124, 58, 237, 0.1);
-  }
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
 
-  .player-level {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-  }
-
-  .level-label {
-    font-family: var(--font-display);
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: var(--text-muted);
-  }
-
-  .level-num {
-    font-family: var(--font-display);
-    font-size: 36px;
-    font-weight: 900;
-    color: white;
-    line-height: 1;
-  }
-
-  .xp-section {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .xp-bar-track {
-    height: 10px;
-    background: var(--bg);
-    border-radius: 5px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
-
-  .xp-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--green), #4ade80);
-    border-radius: 5px;
-    box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
-    transition: width 1s ease;
-  }
-
-  .xp-labels {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-family: var(--font-display);
-    letter-spacing: 0.5px;
-  }
-
-  .player-class {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .class-label {
-    font-family: var(--font-display);
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: var(--text-muted);
-  }
-
-  .class-value {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-ui);
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--text);
-  }
-
-  .class-icon {
-    font-size: 20px;
-  }
-
-  .achievements-section {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .ach-label {
-    font-family: var(--font-display);
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: var(--text-muted);
-  }
-
-  .ach-badges {
-    display: flex;
-    gap: 8px;
-  }
-
-  .ach-badge {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .ach-badge.gold {
-    background: rgba(234, 179, 8, 0.15);
-    border: 1px solid rgba(234, 179, 8, 0.4);
-    color: var(--yellow);
-  }
-
-  .ach-badge.purple {
-    background: rgba(168, 85, 247, 0.15);
-    border: 1px solid rgba(168, 85, 247, 0.4);
-    color: var(--purple-light);
-  }
-
-  .ach-badge.cyan {
-    background: rgba(6, 182, 212, 0.15);
-    border: 1px solid rgba(6, 182, 212, 0.4);
-    color: var(--cyan);
-  }
-
-  .ach-count {
-    font-family: var(--font-display);
-    font-size: 12px;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-  }
-
-  .player-quote {
-    background: var(--bg);
-    border-radius: 8px;
-    padding: 14px;
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--text);
-    position: relative;
-    border: 1px solid var(--border);
-    font-style: italic;
-  }
-
-  .quote-mark {
-    font-size: 28px;
-    font-family: Georgia, serif;
-    color: var(--purple-light);
-    line-height: 0;
-    vertical-align: -8px;
-    margin-right: 2px;
-  }
-
-  .quote-heart {
-    display: block;
-    text-align: right;
-    margin-top: 4px;
-    font-size: 14px;
+    .coord-display {
+      display: none;
+    }
   }
 </style>
