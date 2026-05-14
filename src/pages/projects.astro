@@ -2,42 +2,91 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-const icons = { gaming: '🎮', projects: '⚙️', media: '🎬', links: '🔗' };
-const icon = icons[Astro.url.pathname.replace('/', '')] || '📄';
-const title = Astro.url.pathname.replace('/', '').charAt(0).toUpperCase() + Astro.url.pathname.replace('/', '').slice(1);
 ---
-<Layout title={`${title} — Pabreetzio`}>
+<Layout title="Projects — Pabreetzio">
   <Nav />
-  <main class="placeholder-page container">
-    <div class="coming-soon">
-      <div class="cs-icon">{icon}</div>
-      <h1>{title}</h1>
-      <p>This page is under construction. Check back soon!</p>
-      <a href="/" class="btn-primary">← Back Home</a>
+  <main>
+    <div class="hero">
+      <img src="/tinkering-with-magic-clocks.png" alt="Side Projects" class="hero-img" />
+      <div class="hero-overlay">
+        <div class="container hero-content">
+          <span class="hero-label">CURRENTLY INTO</span>
+          <h1 class="hero-title">Side Projects</h1>
+          <p class="hero-desc">Building weird ideas, tiny tools, and things that make me go "heck yeah."</p>
+        </div>
+      </div>
+    </div>
+    <div class="placeholder-page container">
+      <div class="coming-soon">
+        <p>This page is under construction. Check back soon!</p>
+        <a href="/" class="btn-primary">← Back Home</a>
+      </div>
     </div>
   </main>
   <Footer />
 </Layout>
 
 <style>
-  .placeholder-page {
-    min-height: calc(100vh - 128px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    overflow: hidden;
   }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 10, 18, 0.85) 0%, rgba(10, 10, 18, 0.3) 60%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-content {
+    padding-bottom: 32px;
+  }
+
+  .hero-label {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    margin-bottom: 8px;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 480px;
+  }
+
+  .placeholder-page {
+    padding: 48px 0 80px;
+  }
+
   .coming-soon {
-    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
   }
-  .cs-icon { font-size: 64px; }
-  h1 {
-    font-family: var(--font-display);
-    font-size: 36px;
-    color: var(--text);
-  }
+
   p { color: var(--text-muted); }
 </style>

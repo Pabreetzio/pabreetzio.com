@@ -1,12 +1,16 @@
 ---
+const { pathname } = Astro.url;
 const navLinks = [
-  { label: 'Home', href: '/', active: true },
+  { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Gaming', href: '/gaming' },
   { label: 'Projects', href: '/projects' },
   { label: 'Media', href: '/media' },
   { label: 'Links', href: '/links' },
-];
+].map(link => ({
+  ...link,
+  active: link.href === '/' ? pathname === '/' : pathname.startsWith(link.href),
+}));
 ---
 
 <nav class="nav">

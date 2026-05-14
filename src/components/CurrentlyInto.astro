@@ -2,28 +2,48 @@
 const items = [
   {
     icon: '🎮',
+    image: '/gaming-in-ac-hoodie.png',
     color: 'purple',
+    accent: 'rgba(124, 58, 237, 1)',
+    accentDim: 'rgba(124, 58, 237, 0.3)',
+    accentFaint: 'rgba(124, 58, 237, 0.08)',
+    tag: '#GAMING',
     title: 'Gaming',
     desc: 'Story-rich adventures, cozy indies, and a healthy dose of chaos.',
     href: '/gaming',
   },
   {
     icon: '💻',
+    image: '/tinkering-with-magic-clocks-3-4.png',
     color: 'cyan',
+    accent: 'rgba(6, 182, 212, 1)',
+    accentDim: 'rgba(6, 182, 212, 0.3)',
+    accentFaint: 'rgba(6, 182, 212, 0.08)',
+    tag: '#SIDE PROJECTS',
     title: 'Side Projects',
     desc: 'Building weird ideas, tiny tools, and things that make me go "heck yeah."',
     href: '/projects',
   },
   {
     icon: '🫂',
+    image: '/magical-night-at-tavern-3-4.png',
     color: 'yellow',
+    accent: 'rgba(234, 179, 8, 1)',
+    accentDim: 'rgba(234, 179, 8, 0.3)',
+    accentFaint: 'rgba(234, 179, 8, 0.08)',
+    tag: '#COMMUNITY',
     title: 'Community',
     desc: 'Good people, great conversations, and making the internet a little better.',
     href: '/links',
   },
   {
     icon: '🎲',
+    image: '/pickleball.png',
     color: 'pink',
+    accent: 'rgba(233, 30, 140, 1)',
+    accentDim: 'rgba(233, 30, 140, 0.3)',
+    accentFaint: 'rgba(233, 30, 140, 0.08)',
+    tag: '#RANDOM',
     title: 'Random Interests',
     desc: 'Synthwave, retro tech, coffee, design, memes, and collecting fun rabbit holes.',
     href: '/about',
@@ -40,18 +60,23 @@ const items = [
 
     <div class="cards-grid">
       {items.map(item => (
-        <a href={item.href} class={`into-card into-card--${item.color}`}>
-          <div class="card-icon-wrap">
-            <span class="card-icon">{item.icon}</span>
+        <a
+          href={item.href}
+          class="into-card"
+          style={`--accent: ${item.accent}; --accent-dim: ${item.accentDim}; --accent-faint: ${item.accentFaint};`}
+        >
+          <div class="card-art" style={`border-color: ${item.accentDim};`}>
+            {item.image
+              ? <img src={item.image} alt={item.title} class="card-img" />
+              : <span class="card-placeholder-icon">{item.icon}</span>
+            }
           </div>
           <div class="card-body">
             <h3 class="card-title">{item.title}</h3>
             <p class="card-desc">{item.desc}</p>
-          </div>
-          <div class="card-arrow">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
+            <span class="card-tag" style={`color: ${item.accent}; border-color: ${item.accentDim}; background: ${item.accentFaint};`}>
+              {item.tag}
+            </span>
           </div>
         </a>
       ))}
@@ -68,7 +93,7 @@ const items = [
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 
   .section-icon {
@@ -86,81 +111,67 @@ const items = [
   .cards-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 14px;
   }
 
   .into-card {
-    display: flex;
-    align-items: center;
-    gap: 14px;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 16px;
+    overflow: hidden;
     text-decoration: none;
     transition: all 0.2s;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
+    display: block;
   }
-
-  .into-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-
-  .into-card--purple::before { background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), transparent); }
-  .into-card--cyan::before   { background: linear-gradient(135deg, rgba(6, 182, 212, 0.06), transparent); }
-  .into-card--yellow::before { background: linear-gradient(135deg, rgba(234, 179, 8, 0.06), transparent); }
-  .into-card--pink::before   { background: linear-gradient(135deg, rgba(233, 30, 140, 0.06), transparent); }
 
   .into-card:hover {
-    border-color: var(--border-bright);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    border-color: var(--accent-dim);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
   }
 
-  .into-card:hover::before { opacity: 1; }
-
-  .into-card--purple:hover { border-color: rgba(124, 58, 237, 0.4); }
-  .into-card--cyan:hover   { border-color: rgba(6, 182, 212, 0.4); }
-  .into-card--yellow:hover { border-color: rgba(234, 179, 8, 0.4); }
-  .into-card--pink:hover   { border-color: rgba(233, 30, 140, 0.4); }
-
-  .card-icon-wrap {
-    width: 52px;
-    height: 52px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
-    flex-shrink: 0;
+  .card-art {
+    aspect-ratio: 3 / 4;
+    border-bottom: 1px solid;
+    overflow: hidden;
+    background: #0a0a18;
+    position: relative;
   }
 
-  .into-card--purple .card-icon-wrap { background: rgba(124, 58, 237, 0.15); border: 1px solid rgba(124, 58, 237, 0.3); }
-  .into-card--cyan .card-icon-wrap   { background: rgba(6, 182, 212, 0.15); border: 1px solid rgba(6, 182, 212, 0.3); }
-  .into-card--yellow .card-icon-wrap { background: rgba(234, 179, 8, 0.15); border: 1px solid rgba(234, 179, 8, 0.3); }
-  .into-card--pink .card-icon-wrap   { background: rgba(233, 30, 140, 0.15); border: 1px solid rgba(233, 30, 140, 0.3); }
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-position: center top;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .into-card:hover .card-img {
+    transform: scale(1.04);
+  }
+
+  .card-placeholder-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    opacity: 0.8;
+  }
 
   .card-body {
-    flex: 1;
-    min-width: 0;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .card-title {
     font-family: var(--font-ui);
     font-weight: 700;
-    font-size: 15px;
-    margin-bottom: 4px;
+    font-size: 14px;
+    color: var(--text);
   }
-
-  .into-card--purple .card-title { color: var(--purple-light); }
-  .into-card--cyan .card-title   { color: var(--cyan); }
-  .into-card--yellow .card-title { color: var(--yellow); }
-  .into-card--pink .card-title   { color: var(--pink); }
 
   .card-desc {
     font-size: 12px;
@@ -168,18 +179,16 @@ const items = [
     line-height: 1.5;
   }
 
-  .card-arrow {
-    color: var(--text-dim);
-    flex-shrink: 0;
-    transition: color 0.2s, transform 0.2s;
+  .card-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid;
+    font-size: 10px;
+    font-family: var(--font-display);
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    width: fit-content;
+    margin-top: 2px;
   }
-
-  .into-card:hover .card-arrow {
-    transform: translateX(3px);
-  }
-
-  .into-card--purple:hover .card-arrow { color: var(--purple-light); }
-  .into-card--cyan:hover .card-arrow   { color: var(--cyan); }
-  .into-card--yellow:hover .card-arrow { color: var(--yellow); }
-  .into-card--pink:hover .card-arrow   { color: var(--pink); }
 </style>
