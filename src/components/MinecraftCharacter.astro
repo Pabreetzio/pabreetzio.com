@@ -1,0 +1,39 @@
+---
+interface Props {
+  width?: number;
+  height?: number;
+  id?: string;
+}
+const { width = 180, height = 300, id = 'mc-character' } = Astro.props;
+---
+<canvas
+  id={id}
+  data-mc-width={width}
+  data-mc-height={height}
+  class="mc-character-canvas"
+  style={`width:${width}px;height:${height}px;display:block;`}
+></canvas>
+
+<script>
+  import * as skinview3d from 'skinview3d';
+
+  document.querySelectorAll<HTMLCanvasElement>('.mc-character-canvas').forEach((canvas) => {
+    const w = Number(canvas.dataset.mcWidth);
+    const h = Number(canvas.dataset.mcHeight);
+
+    const viewer = new skinview3d.SkinViewer({
+      canvas,
+      width: w,
+      height: h,
+      skin: '/minecraft-skin.png',
+    });
+
+    viewer.animation = new skinview3d.IdleAnimation();
+    viewer.background = null;
+    viewer.renderer.setClearColor(0x000000, 0);
+
+    viewer.controls.enableZoom = false;
+    viewer.controls.enablePan = false;
+    viewer.controls.enableRotate = true;
+  });
+</script>
