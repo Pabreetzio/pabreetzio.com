@@ -2,7 +2,41 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+const projects = [
+  {
+    title: 'Super Melee',
+    tag: 'ARCADE GAME',
+    accent: '#22c55e',
+    image: '/super-melee-battle.png',
+    imageAlt: 'Super Melee space battle in progress',
+    href: 'https://super-melee.com',
+    para1: "Super Melee is a browser-based space combat game inspired by the classic melee mode from Star Control II. The goal was to capture that pick-a-ship-and-fight experience but strip away all the friction — no downloads, no account needed, just open the site and jump straight into battle against AI opponents or friends online.",
+    para2: "Building it meant diving into the original Ur-Quan Masters source code to understand the core mechanics, then using AI as a collaborator to translate those classic systems into TypeScript and React. The result is a faithful web-native port where human creative instincts handled gameplay feel and polish while AI handled the heavy lifting of code exploration and generation.",
+  },
+  {
+    title: 'Metasquares',
+    tag: 'STRATEGY GAME',
+    accent: '#06b6d4',
+    image: '/metasquares.png',
+    imageAlt: 'Metasquares game board',
+    href: 'https://metasquares.graham.tech',
+    para1: "Metasquares is a reimplementation of an abstract strategy game originally designed by puzzle master Scott Kim back in 1996. Players compete on an n×n grid, placing markers and scoring points by forming squares — the further apart the corners, the more points you earn. It rewards long-term planning over obvious moves, and tilted squares are fair game.",
+    para2: "This started as a code challenge submission at work and became an excuse to explore a stack I'd been curious about: TanStack Start, Convex for serverless backend, Clerk for auth, and React Native with Expo for mobile. It runs as a cross-platform monorepo with shared game logic across web and mobile — basically the most elaborate excuse to play a board game I've ever made.",
+  },
+  {
+    title: "The Wizard's Spell",
+    tag: 'PARTY GAME',
+    accent: '#a855f7',
+    image: '/the-wizards-spell.png',
+    imageAlt: "The Wizard's Spell party game",
+    href: 'https://thewizardsspell.com',
+    para1: "The Wizard's Spell is a competitive word-crafting party game for 2–4 players that blends linguistic skill with psychological strategy. Players take turns adding one letter at a time to a growing \"chant,\" each secretly working toward a hidden word they plan to cast using all accumulated letters.",
+    para2: "What makes it unpredictable is the defiance mechanic — opponents can challenge you to prove your intended word is legitimate within 60 seconds. That turns every letter into both a clue and a potential bluff. Tactical adds, bold deceptions, and sudden defiance make each round feel genuinely different, even with the same group.",
+  },
+];
 ---
+
 <Layout title="Projects — Pabreetzio">
   <Nav />
   <main>
@@ -10,17 +44,50 @@ import Footer from '../components/Footer.astro';
       <img src="/tinkering-with-magic-clocks.png" alt="Side Projects" class="hero-img" />
       <div class="hero-overlay">
         <div class="container hero-content">
-          <span class="hero-label">CURRENTLY INTO</span>
-          <h1 class="hero-title">Side Projects</h1>
+          <span class="hero-label">SIDE PROJECTS</span>
+          <h1 class="hero-title">Things I've Built</h1>
           <p class="hero-desc">Building weird ideas, tiny tools, and things that make me go "heck yeah."</p>
         </div>
       </div>
     </div>
-    <div class="placeholder-page container">
-      <div class="coming-soon">
-        <p>This page is under construction. Check back soon!</p>
-        <a href="/" class="btn-primary">← Back Home</a>
-      </div>
+
+    <div class="projects-list container">
+      {projects.map((p, i) => (
+        <article class="project-feature" style={`--accent: ${p.accent};`}>
+          <div class={`feature-inner ${i % 2 === 1 ? 'reverse' : ''}`}>
+            <div class="feature-image-wrap" style={`border-color: ${p.accent}33;`}>
+              <img src={p.image} alt={p.imageAlt} class="feature-image" />
+            </div>
+            <div class="feature-body">
+              <span class="feature-tag" style={`color: ${p.accent}; border-color: ${p.accent}44; background: ${p.accent}11;`}>
+                {p.tag}
+              </span>
+              <h2 class="feature-title">{p.title}</h2>
+              <p class="feature-para">{p.para1}</p>
+              <p class="feature-para">{p.para2}</p>
+              <a href={p.href} class="feature-link" target="_blank" rel="noopener noreferrer" style={`color: ${p.accent}; border-color: ${p.accent}44;`}>
+                Visit {p.title}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+
+      <article class="graham-tech-callout">
+        <div class="callout-inner">
+          <div class="callout-header">
+            <span class="callout-label">PROFESSIONAL SITE</span>
+            <h2 class="callout-title">More on Patrick Graham</h2>
+          </div>
+          <p class="callout-para">I keep a more professional corner of the internet at <a href="https://graham.tech" target="_blank" rel="noopener noreferrer" class="inline-link">graham.tech</a> — it's where I go deeper on projects I've shipped over the years, including game experiments, tools I've built for work, and writeups on the things that shaped how I think about software.</p>
+          <p class="callout-para">If you want the full picture — more projects, more context, and a bit more polish than this chaotic corner of the web — that's the place to go.</p>
+          <a href="https://graham.tech" class="callout-link" target="_blank" rel="noopener noreferrer">
+            Learn about Patrick Graham
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
     </div>
   </main>
   <Footer />
@@ -77,16 +144,222 @@ import Footer from '../components/Footer.astro';
     max-width: 480px;
   }
 
-  .placeholder-page {
-    padding: 48px 0 80px;
-  }
-
-  .coming-soon {
+  .projects-list {
+    padding: 64px 0 80px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+    gap: 0;
   }
 
-  p { color: var(--text-muted); }
+  /* Project feature sections */
+  .project-feature {
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent);
+    border-radius: 12px;
+    background: var(--bg-card);
+    overflow: hidden;
+    margin-bottom: 60px;
+  }
+
+  .feature-inner {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    min-height: 320px;
+    max-height: 500px;
+  }
+
+  .feature-inner.reverse {
+    grid-template-columns: 1fr 420px;
+  }
+
+  .feature-inner.reverse .feature-image-wrap {
+    order: 2;
+    border-left: 1px solid;
+    border-right: none;
+  }
+
+  .feature-inner.reverse .feature-body {
+    order: 1;
+  }
+
+  .feature-image-wrap {
+    border-right: 1px solid;
+    overflow: hidden;
+    background: #0a0a18;
+  }
+
+  .feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .project-feature:hover .feature-image {
+    transform: scale(1.03);
+  }
+
+  .feature-body {
+    padding: 36px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  .feature-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    border: 1px solid;
+    font-size: 11px;
+    font-family: var(--font-display);
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    width: fit-content;
+  }
+
+  .feature-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1.1;
+  }
+
+  .feature-para {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .feature-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 7px 14px;
+    width: fit-content;
+    margin-top: 4px;
+    text-decoration: none;
+    transition: gap 0.2s, opacity 0.2s;
+    background: transparent;
+  }
+
+  .feature-link:hover {
+    gap: 10px;
+    opacity: 0.85;
+  }
+
+  /* Graham.tech callout */
+  .graham-tech-callout {
+    border: 1px solid var(--border-bright);
+    border-radius: 12px;
+    background: var(--bg-card);
+  }
+
+  .callout-inner {
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 680px;
+  }
+
+  .callout-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .callout-label {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--pink);
+  }
+
+  .callout-title {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 900;
+    color: var(--text);
+  }
+
+  .callout-para {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .inline-link {
+    color: var(--pink);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--pink) 40%, transparent);
+    text-underline-offset: 3px;
+  }
+
+  .inline-link:hover {
+    text-decoration-color: var(--pink);
+  }
+
+  .callout-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    color: var(--pink);
+    border: 1px solid color-mix(in srgb, var(--pink) 40%, transparent);
+    border-radius: 6px;
+    padding: 7px 14px;
+    width: fit-content;
+    margin-top: 4px;
+    text-decoration: none;
+    transition: gap 0.2s, opacity 0.2s;
+  }
+
+  .callout-link:hover {
+    gap: 10px;
+    opacity: 0.85;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .feature-inner,
+    .feature-inner.reverse {
+      grid-template-columns: 1fr;
+    }
+
+    .feature-image-wrap {
+      height: 240px;
+      border-right: none;
+      border-left: none !important;
+      border-bottom: 1px solid;
+    }
+
+    .feature-inner.reverse .feature-image-wrap {
+      order: 1;
+    }
+
+    .feature-inner.reverse .feature-body {
+      order: 2;
+    }
+
+    .feature-body {
+      padding: 24px;
+    }
+
+    .callout-inner {
+      padding: 32px 24px;
+    }
+  }
 </style>
