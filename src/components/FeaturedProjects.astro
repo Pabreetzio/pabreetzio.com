@@ -1,31 +1,31 @@
 ---
 const projects = [
   {
-    title: '8-Bit Explorer',
-    desc: 'A tiny retro adventure engine I built for fun.',
-    tag: '#GAME DEV',
-    color: '#1a2a3a',
+    title: 'Super Melee',
+    desc: 'Browser-based multiplayer space combat inspired by Star Control II. No download, no login — jump straight into battle.',
+    tag: '#GAME',
     accent: '#22c55e',
-    emoji: '🎮',
-    href: '/projects',
+    image: '/super-melee-battle.png',
+    imageAlt: 'Super Melee battle in progress',
+    href: 'https://super-melee.com',
   },
   {
-    title: 'Mood Tracker',
-    desc: 'Track vibes, see patterns, feel things.',
-    tag: '#WEB APP',
-    color: '#2a1a2a',
-    accent: '#e91e8c',
-    emoji: '😊',
-    href: '/projects',
+    title: 'Metasquares',
+    desc: 'A modern web & mobile take on Scott Kim\'s 1996 abstract strategy game. Form squares, score points, outwit your opponent.',
+    tag: '#STRATEGY GAME',
+    accent: '#06b6d4',
+    image: '/metasquares.png',
+    imageAlt: 'Metasquares game board',
+    href: 'https://metasquares.graham.tech',
   },
   {
-    title: 'Console Log',
-    desc: 'A curated collection of gaming thoughts & hot takes.',
-    tag: '#BLOG',
-    color: '#1a1a2a',
+    title: "The Wizard's Spell",
+    desc: 'A fiendish letter-chant and word-craft party game for 2–4 players. Tactical adds, bold bluffs, and sudden defiance.',
+    tag: '#PARTY GAME',
     accent: '#a855f7',
-    emoji: '📝',
-    href: '/projects',
+    image: '/the-wizards-spell.png',
+    imageAlt: "The Wizard's Spell game",
+    href: 'https://thewizardsspell.com',
   },
 ];
 ---
@@ -46,12 +46,9 @@ const projects = [
 
     <div class="projects-grid">
       {projects.map(project => (
-        <a href={project.href} class="project-card" style={`--accent: ${project.accent};`}>
-          <div class="project-art" style={`background: linear-gradient(135deg, ${project.color}, #0a0a18); border-color: ${project.accent}33;`}>
-            <span class="project-emoji">{project.emoji}</span>
-            <div class="project-art-grid">
-              {Array.from({length: 9}).map(() => <span class="art-pixel"></span>)}
-            </div>
+        <a href={project.href} class="project-card" style={`--accent: ${project.accent};`} target="_blank" rel="noopener noreferrer">
+          <div class="project-art" style={`border-color: ${project.accent}33;`}>
+            <img src={project.image} alt={project.imageAlt} class="project-screenshot" />
           </div>
           <div class="project-body">
             <h3 class="project-title">{project.title}</h3>
@@ -132,33 +129,21 @@ const projects = [
   .project-art {
     aspect-ratio: 16/8;
     border-bottom: 1px solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
     overflow: hidden;
+    background: #0a0a18;
   }
 
-  .project-emoji {
-    font-size: 40px;
-    position: relative;
-    z-index: 1;
-    filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+  .project-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 0.3s ease;
   }
 
-  .project-art-grid {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    padding: 8px;
-    opacity: 0.05;
-  }
-
-  .art-pixel {
-    background: white;
-    border-radius: 2px;
+  .project-card:hover .project-screenshot {
+    transform: scale(1.04);
   }
 
   .project-body {
