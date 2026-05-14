@@ -5,7 +5,7 @@ const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'Gaming', href: '/gaming' },
   { label: 'Projects', href: '/projects' },
-  { label: 'Media', href: '/media' },
+  { label: 'Media', href: '/media', hidden: true },
   { label: 'Links', href: '/links' },
 ].map(link => ({
   ...link,
@@ -22,7 +22,7 @@ const navLinks = [
 
     <ul class="nav-links">
       {navLinks.map(link => (
-        <li>
+        <li style={link.hidden ? 'display:none' : ''}>
           <a href={link.href} class:list={['nav-link', { active: link.active }]}>
             {link.label}
             {link.active && <span class="nav-dot"></span>}
