@@ -6,7 +6,7 @@ const navLinks = [
   { label: 'Gaming', href: '/gaming' },
   { label: 'Projects', href: '/projects' },
   { label: 'Media', href: '/media', hidden: true },
-  { label: 'Links', href: '/links' },
+  { label: 'Community', href: '/community' },
 ].map(link => ({
   ...link,
   active: link.href === '/' ? pathname === '/' : pathname.startsWith(link.href),
