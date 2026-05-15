@@ -2,7 +2,47 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+const sections = [
+  {
+    accent: '#eab308',
+    image: '/age-of-empires.png',
+    imageAlt: 'Age of Empires',
+    title: 'Age of Empires',
+    paras: [
+      "Age of Empires II is one of those games I keep coming back to. There's something deeply satisfying about the loop — gathering resources, advancing through ages, and carefully timing when to push. It rewards patience and planning in a way that feels good even when you lose.",
+      "More than the mechanics, it sparked a genuine interest in the history behind it. Choosing a civilization isn't just a stat selection — it's a starting point for going down rabbit holes about the Byzantines, the Mongols, or the Britons. Few games have that kind of reach.",
+    ],
+    link: null,
+    reverse: false,
+  },
+  {
+    accent: '#22c55e',
+    image: '/master-chief.png',
+    imageAlt: 'Master Chief — Halo',
+    title: 'Halo',
+    paras: [
+      "The original Halo trilogy is one of the great single-player experiences in gaming. Following Master Chief across the Halo rings — the Flood, the Covenant, the mystery of the Forerunners — was the kind of game you talked about the next day. The story held together in a way that most shooters never manage.",
+      "Playing through the campaign co-op is still one of the better ways to spend a few evenings. The Master Chief Collection made it easy to revisit, and it holds up better than it has any right to.",
+    ],
+    link: null,
+    reverse: true,
+  },
+  {
+    accent: '#7c3aed',
+    image: '/commanding-the-cosmic-frontier.png',
+    imageAlt: 'Star Control II: The Ur-Quan Masters',
+    title: 'Star Control II: The Ur-Quan Masters',
+    paras: [
+      "Star Control II is one of the most ambitious games ever made — part space exploration, part alien diplomacy, part arcade combat, all wrapped in an unforgettable story with one of the best casts of characters in any medium. I've been obsessed with it long enough to build a browser-based port of the melee combat mode.",
+      `That project became <a href="https://super-melee.com" target="_blank">Super Melee</a> — a web-native version of the ship-vs-ship combat that captures the feel of the original without needing a download. If you've never played Star Control II, the Ur-Quan Masters fan port is free and it's genuinely worth your time.`,
+    ],
+    link: { label: 'Play Super Melee', href: 'https://super-melee.com' },
+    reverse: false,
+  },
+];
 ---
+
 <Layout title="Gaming — Pabreetzio">
   <Nav />
   <main>
@@ -10,17 +50,36 @@ import Footer from '../components/Footer.astro';
       <img src="/gaming-in-ac-hoodie.png" alt="Gaming" class="hero-img" />
       <div class="hero-overlay">
         <div class="container hero-content">
-          <span class="hero-label">CURRENTLY INTO</span>
+          <span class="hero-label">GAMING</span>
           <h1 class="hero-title">Gaming</h1>
           <p class="hero-desc">Story-rich adventures, cozy indies, and a healthy dose of chaos.</p>
         </div>
       </div>
     </div>
-    <div class="placeholder-page container">
-      <div class="coming-soon">
-        <p>This page is under construction. Check back soon!</p>
-        <a href="/" class="btn-primary">← Back Home</a>
-      </div>
+
+    <div class="sections-list container">
+      {sections.map(section => (
+        <article class="section-feature" style={`--accent: ${section.accent};`}>
+          <div class={`feature-inner ${section.reverse ? 'reverse' : ''}`}>
+
+            <div class="feature-image-wrap">
+              <img src={section.image} alt={section.imageAlt} class="feature-image" />
+            </div>
+
+            <div class="feature-body">
+              <h2 class="feature-title">{section.title}</h2>
+              {section.paras.map(p => <p class="feature-para" set:html={p} />)}
+              {section.link && (
+                <a href={section.link.href} class="feature-link" target="_blank" style={`color: ${section.accent}; border-color: ${section.accent}44;`}>
+                  {section.link.label}
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              )}
+            </div>
+
+          </div>
+        </article>
+      ))}
     </div>
   </main>
   <Footer />
@@ -77,16 +136,138 @@ import Footer from '../components/Footer.astro';
     max-width: 480px;
   }
 
-  .placeholder-page {
-    padding: 48px 0 80px;
-  }
-
-  .coming-soon {
+  .sections-list {
+    padding: 64px 0 80px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
   }
 
-  p { color: var(--text-muted); }
+  .section-feature {
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent);
+    border-radius: 12px;
+    background: var(--bg-card);
+    overflow: hidden;
+    margin-bottom: 60px;
+  }
+
+  .feature-inner {
+    display: grid;
+    grid-template-columns: 500px 1fr;
+  }
+
+  .feature-inner.reverse {
+    grid-template-columns: 1fr 500px;
+  }
+
+  .feature-inner.reverse .feature-image-wrap {
+    order: 2;
+  }
+
+  .feature-inner.reverse .feature-body {
+    order: 1;
+  }
+
+  .feature-image-wrap {
+    overflow: hidden;
+    background: var(--bg-card);
+  }
+
+  .feature-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .feature-body {
+    padding: 36px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  .feature-title {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1.1;
+  }
+
+  .feature-para {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  .feature-para a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s;
+  }
+
+  .feature-para a:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .feature-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 7px 14px;
+    text-decoration: none;
+    width: fit-content;
+    margin-top: 4px;
+    transition: gap 0.2s, opacity 0.2s;
+    background: transparent;
+  }
+
+  .feature-link:hover {
+    gap: 10px;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      height: 240px;
+    }
+
+    .sections-list {
+      padding: 32px 24px 48px;
+    }
+
+    .section-feature {
+      margin-bottom: 32px;
+    }
+
+    .feature-inner,
+    .feature-inner.reverse {
+      grid-template-columns: 1fr;
+    }
+
+    .feature-inner.reverse .feature-image-wrap {
+      order: 1;
+    }
+
+    .feature-inner.reverse .feature-body {
+      order: 2;
+    }
+
+    .feature-image-wrap {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feature-body {
+      padding: 20px 20px 24px;
+      gap: 10px;
+    }
+  }
 </style>
