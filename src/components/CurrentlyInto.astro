@@ -191,4 +191,30 @@ const items = [
     width: fit-content;
     margin-top: 2px;
   }
+
+  @media (max-width: 700px) {
+    .cards-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .into-card {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .card-art {
+      aspect-ratio: unset;
+      width: 120px;
+      min-width: 120px;
+      height: auto;
+      border-bottom: none;
+      border-right: 1px solid;
+    }
+
+    .card-body {
+      flex: 1;
+      padding: 12px 14px;
+    }
+  }
 </style>

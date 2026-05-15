@@ -37,3 +37,4 @@ dist/
 node_modules/
 .astro/
 .claude/settings.local.json
+.vscode/launch.json

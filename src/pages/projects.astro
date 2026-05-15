@@ -334,13 +334,30 @@ const projects = [
 
   /* Responsive */
   @media (max-width: 768px) {
+    .hero {
+      height: 240px;
+    }
+
+    .hero-content {
+      padding-bottom: 20px;
+    }
+
+    .projects-list {
+      padding: 32px 24px 48px;
+    }
+
+    .project-feature {
+      margin-bottom: 32px;
+    }
+
     .feature-inner,
     .feature-inner.reverse {
       grid-template-columns: 1fr;
+      max-height: none;
     }
 
     .feature-image-wrap {
-      height: 240px;
+      height: 220px;
       border-right: none;
       border-left: none !important;
       border-bottom: 1px solid;
@@ -355,11 +372,16 @@ const projects = [
     }
 
     .feature-body {
-      padding: 24px;
+      padding: 20px 20px 24px;
+      gap: 10px;
+    }
+
+    .feature-title {
+      font-size: 22px;
     }
 
     .callout-inner {
-      padding: 32px 24px;
+      padding: 28px 20px;
     }
   }
 </style>
