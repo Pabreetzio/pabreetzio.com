@@ -312,7 +312,26 @@ const visibleLinks = navLinks.filter(l => !l.hidden);
     border-color: var(--border-bright);
   }
 
-  @media (max-width: 700px) {
+  /* Socials move into hamburger at 830px — links stay in the bar */
+  @media (max-width: 830px) {
+    .nav-icon-btn {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+      width: 36px;
+      height: 36px;
+    }
+
+    /* Only show socials in the mobile menu at this range */
+    .mobile-links {
+      display: none;
+    }
+  }
+
+  /* Nav links collapse into hamburger at 640px */
+  @media (max-width: 640px) {
     .nav-links {
       display: none;
     }
@@ -325,14 +344,9 @@ const visibleLinks = navLinks.filter(l => !l.hidden);
       margin-left: auto;
     }
 
-    .nav-icon-btn {
-      display: none;
-    }
-
-    .hamburger {
-      display: flex;
-      width: 36px;
-      height: 36px;
+    /* Restore nav links inside the mobile menu */
+    .mobile-links {
+      display: block;
     }
 
     /* mobile-menu visibility controlled by JS */

@@ -11,6 +11,7 @@ const items = [
     title: 'Gaming',
     desc: 'Story-rich adventures, cozy indies, and a healthy dose of chaos.',
     href: '/gaming',
+    rgbLight: true,
   },
   {
     icon: '💻',
@@ -70,6 +71,7 @@ const items = [
               ? <img src={item.image} alt={item.title} class="card-img" />
               : <span class="card-placeholder-icon">{item.icon}</span>
             }
+            {item.rgbLight && <img src="/gaming-overlay-3.png" class="mouse-rgb-overlay" alt="" aria-hidden="true" />}
           </div>
           <div class="card-body">
             <h3 class="card-title">{item.title}</h3>
@@ -190,6 +192,26 @@ const items = [
     font-weight: 600;
     width: fit-content;
     margin-top: 2px;
+  }
+
+  .mouse-rgb-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    pointer-events: none;
+    animation: hue-spin 10s linear infinite;
+    transition: transform 0.3s ease;
+  }
+
+  .into-card:hover .mouse-rgb-overlay {
+    transform: scale(1.04);
+  }
+
+  @keyframes hue-spin {
+    from { filter: hue-rotate(0deg); }
+    to   { filter: hue-rotate(360deg); }
   }
 
   @media (max-width: 700px) {

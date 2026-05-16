@@ -17,7 +17,7 @@ import MinecraftCharacter from './MinecraftCharacter.astro';
         <img src="/p-logo-black.png" alt="Pabreetzio" class="footer-logo-img" />
         <span class="footer-logo-text">pabreetzio.com</span>
       </a>
-      <p class="footer-tagline">Thanks for visiting! Stay curious. <span class="footer-heart">💜</span></p>
+      <p class="footer-tagline">Thanks for visiting! Stay curious.</p>
     </div>
 
     <div class="starship-badge">
@@ -211,5 +211,17 @@ import MinecraftCharacter from './MinecraftCharacter.astro';
     font-size: 11px;
     color: var(--text-muted);
     letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 800px) {
+    .starship-badge {
+      display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-pixel-char {
+      display: none;
+    }
   }
 </style>
