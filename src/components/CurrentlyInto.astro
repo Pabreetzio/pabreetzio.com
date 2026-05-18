@@ -24,6 +24,7 @@ const items = [
     title: 'Side Projects',
     desc: 'Building weird ideas, tiny tools, and things that make me go "heck yeah."',
     href: '/projects',
+    saturationOverlay: true,
   },
   {
     icon: '🫂',
@@ -72,6 +73,7 @@ const items = [
               : <span class="card-placeholder-icon">{item.icon}</span>
             }
             {item.rgbLight && <img src="/gaming-overlay-3.png" class="mouse-rgb-overlay" alt="" aria-hidden="true" />}
+            {item.saturationOverlay && <img src="/tinkering-with-magic-clocks-3-4-overlay.png" class="saturation-overlay" alt="" aria-hidden="true" />}
           </div>
           <div class="card-body">
             <h3 class="card-title">{item.title}</h3>
@@ -212,6 +214,27 @@ const items = [
   @keyframes hue-spin {
     from { filter: hue-rotate(0deg); }
     to   { filter: hue-rotate(360deg); }
+  }
+
+  .saturation-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    pointer-events: none;
+    animation: saturate-pulse 4s ease-in-out infinite;
+    transition: transform 0.3s ease;
+  }
+
+  .into-card:hover .saturation-overlay {
+    transform: scale(1.04);
+  }
+
+  @keyframes saturate-pulse {
+    0%   { filter: saturate(0); }
+    50%  { filter: saturate(2.5); }
+    100% { filter: saturate(0); }
   }
 
   @media (max-width: 700px) {
