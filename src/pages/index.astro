@@ -8,7 +8,33 @@ import FeaturedProjects from '../components/FeaturedProjects.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Pabreetzio — Player 1 Online">
+<Layout title="Pabreetzio — Maker. Gamer. Dev.">
+  <script type="application/ld+json" set:html={JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Patrick Graham",
+      "alternateName": "Pabreetzio",
+      "url": "https://pabreetzio.com",
+      "description": "Patrick Graham, known online as Pabreetzio, is a software developer and Charlotte local who builds games, runs communities, and traces family history.",
+      "jobTitle": "Software Developer",
+      "homeLocation": { "@type": "City", "name": "Charlotte", "addressRegion": "NC", "addressCountry": "US" },
+      "sameAs": [
+        "https://graham.tech",
+        "https://patrickgraham.net",
+        "https://stridecityrunclub.com",
+        "https://www.meetup.com/charlottedevs/"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Pabreetzio",
+      "url": "https://pabreetzio.com",
+      "description": "Patrick Graham's personal site — side projects, gaming, community, and genealogy.",
+      "author": { "@type": "Person", "name": "Patrick Graham", "alternateName": "Pabreetzio" }
+    }
+  ])} slot="head" />
   <Nav />
   <main>
     <Hero />

@@ -3,7 +3,12 @@ interface Props {
   title?: string;
   description?: string;
 }
-const { title = 'Pabreetzio', description = "Fun side quests, gaming, experiments, and the stuff that doesn't fit anywhere else." } = Astro.props;
+const {
+  title = 'Pabreetzio — Patrick Graham',
+  description = "Pabreetzio is Patrick Graham — software developer, gamer, and Charlotte local. Side quests, gaming, community, and the stuff that doesn't fit anywhere else.",
+} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, 'https://pabreetzio.com');
+const ogImage = 'https://pabreetzio.com/p-logo-new-original.png';
 ---
 <!doctype html>
 <html lang="en">
@@ -12,9 +17,26 @@ const { title = 'Pabreetzio', description = "Fun side quests, gaming, experiment
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="generator" content={Astro.generator} />
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:site_name" content="Pabreetzio" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
   <title>{title}</title>
   <link rel="icon" type="image/png" href="/favicon-light.png" media="(prefers-color-scheme: light)" />
   <link rel="icon" type="image/png" href="/favicon-dark.png" media="(prefers-color-scheme: dark)" />
+  <slot name="head" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
